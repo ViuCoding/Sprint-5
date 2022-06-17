@@ -11,3 +11,7 @@ body {
 main {
   height: 100vh;
 }
+
+#joke {
+  font-style: italic;
+}
