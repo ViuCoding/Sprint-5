@@ -13,11 +13,13 @@ const DAD_JOKES = "https://icanhazdadjoke.com/";
 const CHUCK_NORRIS = "https://api.chucknorris.io/jokes/random";
 function getJoke() {
     return __awaiter(this, void 0, void 0, function* () {
+        // First we create a fetch request with all the parameters needed to get a JSON value as a return.
         const request = yield fetch(`${DAD_JOKES}`, {
             headers: {
                 Accept: "application/json",
             },
         });
+        // Then we transform the "request" object into a JSON object, and then we can work with it.
         const data = yield request.json();
         document.querySelector("#joke").innerHTML = data.joke;
     });
