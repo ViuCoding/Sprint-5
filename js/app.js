@@ -8,9 +8,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+const react = document.querySelector(".reactions");
+react.style.display = "none";
 // APIs URLs
 const DAD_JOKES = "https://icanhazdadjoke.com/";
 const CHUCK_NORRIS = "https://api.chucknorris.io/jokes/random";
+// Global Variables
+const reportJokes = [];
 function getJoke() {
     return __awaiter(this, void 0, void 0, function* () {
         // First we create a fetch request with all the parameters needed to get a JSON value as a return.
@@ -22,5 +26,18 @@ function getJoke() {
         // Then we transform the "request" object into a JSON object, and then we can work with it.
         const data = yield request.json();
         document.querySelector("#joke").innerHTML = data.joke;
+        react.style.display = "block";
     });
+}
+function voteJoke(score) {
+    const joke = document.querySelector("#joke").innerHTML;
+    const date = new Date();
+    let dateText = date.toISOString();
+    reportJokes.push({
+        joke: joke,
+        score: score,
+        date: dateText,
+    });
+    react.style.display = "none";
+    console.table(reportJokes);
 }
