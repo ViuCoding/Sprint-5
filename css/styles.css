@@ -5,13 +5,15 @@
 }
 
 body {
-  background-color: rgb(91, 135, 172);
-}
-
-main {
-  height: 100vh;
+  background: ;
 }
 
 #joke {
   font-style: italic;
+}
+
+#joke-container {
+  background-color: rgb(80, 130, 160);
+  height: 200px;
+  width: 700px;
 }
