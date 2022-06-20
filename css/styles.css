@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,300&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -5,15 +7,44 @@
 }
 
 body {
-  background: ;
+  font-family: "Roboto", monospace;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/bg2.jpg") center/cover;
+}
+
+main {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-msg {
+  padding: 1rem;
+  background-color: aliceblue;
+}
+
+#joke-box {
+  padding: 0 1rem;
+  height: 250px;
+  width: 500px;
+  text-align: center;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0px 0px 17px 3px rgba(0, 0, 0, 0.77);
+}
+
+#joke-box h1 {
+  margin-top: 1rem;
 }
 
 #joke {
-  font-style: italic;
+  margin: 2rem 0;
 }
 
-#joke-container {
-  background-color: rgb(80, 130, 160);
-  height: 200px;
-  width: 700px;
+.btn {
+  font-family: inherit;
+  padding: 0.7rem 1.5rem;
+  border: none;
+  outline: none;
+  border-radius: 30px;
 }
