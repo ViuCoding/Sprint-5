@@ -16,20 +16,33 @@ const CURRENT_WEATHER = `https://api.openweathermap.org/data/2.5/weather?lat=${l
 const reportJokes: any[] = [];
 
 async function getJoke() {
-  // First we create a fetch request with all the parameters needed to get a JSON value as a return.
-  const request = await fetch(`${DAD_JOKES}`, {
-    headers: {
-      Accept: "application/json",
-    },
-  });
+  let request: any;
+  let data: any;
 
-  // Then we transform the "request" object into a JSON object, and then we can work with it.
+  // Random number between 1 and 10
+  let random = Math.floor(Math.random() * 10) + 1;
 
-  const data = await request.json();
+  // If random is <= 5 we got with Dad Jokes otherwise it's Chuck Norris Time.
+  if (random <= 5) {
+    // First we create a fetch request with all the parameters needed to get a JSON value as a return.
+    request = await fetch(`${DAD_JOKES}`, {
+      headers: {
+        Accept: "application/json",
+      },
+    });
+    // Then we transform the "request" object into a JSON object, and then we can work with it.
 
-  document.querySelector("#joke")!.innerHTML = data.joke;
+    data = await request.json();
+    document.querySelector("#joke")!.innerHTML = data.joke;
+  } else {
+    request = await fetch(`${CHUCK_NORRIS}`);
+    data = await request.json();
+    document.querySelector("#joke")!.innerHTML = data.value;
+  }
+
   react.style.display = "block";
 }
+
 function voteJoke(score: number) {
   const joke = document.querySelector("#joke")!.innerHTML;
   const date = new Date();

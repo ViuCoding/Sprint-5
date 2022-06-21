@@ -23,15 +23,27 @@ const CURRENT_WEATHER = `https://api.openweathermap.org/data/2.5/weather?lat=${l
 const reportJokes = [];
 function getJoke() {
     return __awaiter(this, void 0, void 0, function* () {
-        // First we create a fetch request with all the parameters needed to get a JSON value as a return.
-        const request = yield fetch(`${DAD_JOKES}`, {
-            headers: {
-                Accept: "application/json",
-            },
-        });
-        // Then we transform the "request" object into a JSON object, and then we can work with it.
-        const data = yield request.json();
-        document.querySelector("#joke").innerHTML = data.joke;
+        let request;
+        let data;
+        // Random number between 1 and 10
+        let random = Math.floor(Math.random() * 10) + 1;
+        // If random is <= 5 we got with Dad Jokes otherwise it's Chuck Norris Time.
+        if (random <= 5) {
+            // First we create a fetch request with all the parameters needed to get a JSON value as a return.
+            request = yield fetch(`${DAD_JOKES}`, {
+                headers: {
+                    Accept: "application/json",
+                },
+            });
+            // Then we transform the "request" object into a JSON object, and then we can work with it.
+            data = yield request.json();
+            document.querySelector("#joke").innerHTML = data.joke;
+        }
+        else {
+            request = yield fetch(`${CHUCK_NORRIS}`);
+            data = yield request.json();
+            document.querySelector("#joke").innerHTML = data.value;
+        }
         react.style.display = "block";
     });
 }
