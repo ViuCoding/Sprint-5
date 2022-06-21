@@ -1,9 +1,16 @@
 const react = document.querySelector(".reactions") as HTMLElement;
 react.style.display = "none";
 
+// Weather API Keys
+let lat = 41.3874;
+let lon = 2.1686;
+let apiKey = "37f2111fdeb0f75bcb28fbd30c3c518c";
+let lang = "ES";
+
 // APIs URLs
 const DAD_JOKES = "https://icanhazdadjoke.com/";
 const CHUCK_NORRIS = "https://api.chucknorris.io/jokes/random";
+const CURRENT_WEATHER = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&lang=${lang}`;
 
 // Global Variables
 const reportJokes: any[] = [];
@@ -37,3 +44,10 @@ function voteJoke(score: number) {
   react.style.display = "none";
   console.table(reportJokes);
 }
+
+window.onload = async function getWeather() {
+  const weatherRequest = await fetch(`${CURRENT_WEATHER}`);
+  const weatherData = await weatherRequest.json();
+
+  console.log(weatherData);
+};

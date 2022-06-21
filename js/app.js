@@ -10,9 +10,15 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 const react = document.querySelector(".reactions");
 react.style.display = "none";
+// Weather API Keys
+let lat = 41.3874;
+let lon = 2.1686;
+let apiKey = "37f2111fdeb0f75bcb28fbd30c3c518c";
+let lang = "ES";
 // APIs URLs
 const DAD_JOKES = "https://icanhazdadjoke.com/";
 const CHUCK_NORRIS = "https://api.chucknorris.io/jokes/random";
+const CURRENT_WEATHER = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&lang=${lang}`;
 // Global Variables
 const reportJokes = [];
 function getJoke() {
@@ -41,3 +47,10 @@ function voteJoke(score) {
     react.style.display = "none";
     console.table(reportJokes);
 }
+window.onload = function getWeather() {
+    return __awaiter(this, void 0, void 0, function* () {
+        const weatherRequest = yield fetch(`${CURRENT_WEATHER}`);
+        const weatherData = yield weatherRequest.json();
+        console.log(weatherData);
+    });
+};
