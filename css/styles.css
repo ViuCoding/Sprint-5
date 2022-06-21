@@ -8,14 +8,21 @@
 
 body {
   font-family: "Roboto", monospace;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/bg2.jpg") center/cover;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/bg1.jpg") center/cover;
 }
 
-main {
-  height: 80vh;
+body {
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 .header-msg {
