@@ -41,6 +41,10 @@ main {
   margin: 2rem 0;
 }
 
+#weather {
+  text-transform: capitalize;
+}
+
 .reactions {
   margin-bottom: 1rem;
 }

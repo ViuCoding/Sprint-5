@@ -11,10 +11,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 const react = document.querySelector(".reactions");
 react.style.display = "none";
 // Weather API Keys
-let lat = 41.3874;
-let lon = 2.1686;
+let lat = 41.390205;
+let lon = 2.154007;
 let apiKey = "37f2111fdeb0f75bcb28fbd30c3c518c";
-let lang = "ES";
+let lang = "EN";
 // APIs URLs
 const DAD_JOKES = "https://icanhazdadjoke.com/";
 const CHUCK_NORRIS = "https://api.chucknorris.io/jokes/random";
@@ -51,6 +51,8 @@ window.onload = function getWeather() {
     return __awaiter(this, void 0, void 0, function* () {
         const weatherRequest = yield fetch(`${CURRENT_WEATHER}`);
         const weatherData = yield weatherRequest.json();
+        document.querySelector("#weather").innerHTML = weatherData.weather[0].description;
+        document.querySelector("#city").innerHTML = weatherData.name;
         console.log(weatherData);
     });
 };

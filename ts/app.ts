@@ -2,10 +2,10 @@ const react = document.querySelector(".reactions") as HTMLElement;
 react.style.display = "none";
 
 // Weather API Keys
-let lat = 41.3874;
-let lon = 2.1686;
+let lat = 41.390205;
+let lon = 2.154007;
 let apiKey = "37f2111fdeb0f75bcb28fbd30c3c518c";
-let lang = "ES";
+let lang = "EN";
 
 // APIs URLs
 const DAD_JOKES = "https://icanhazdadjoke.com/";
@@ -48,6 +48,9 @@ function voteJoke(score: number) {
 window.onload = async function getWeather() {
   const weatherRequest = await fetch(`${CURRENT_WEATHER}`);
   const weatherData = await weatherRequest.json();
+
+  document.querySelector("#weather")!.innerHTML = weatherData.weather[0].description;
+  document.querySelector("#city")!.innerHTML = weatherData.name;
 
   console.log(weatherData);
 };
