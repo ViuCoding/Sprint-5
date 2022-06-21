@@ -41,10 +41,19 @@ main {
   margin: 2rem 0;
 }
 
+#weather {
+  text-transform: capitalize;
+}
+
+.reactions {
+  margin-bottom: 1rem;
+}
+
 .btn {
   font-family: inherit;
   padding: 0.7rem 1.5rem;
   border: none;
   outline: none;
   border-radius: 30px;
+  cursor: pointer;
 }

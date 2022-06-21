@@ -10,15 +10,18 @@
   </head>
   <body>
     <header>
-      <p class="header-msg">TODAY: SUNNY WITH A CHANGE OF MEATBALLS</p>
+      <p class="header-msg">Today's Weather in <span id="city"></span>: <span id="weather"></span></p>
     </header>
     <main>
       <section id="joke-box">
         <h1>ARE YOU READYY??</h1>
         <p id="joke"></p>
-        <button class="btn">Nayyy</button>
+        <div class="reactions">
+          <button class="btn" onclick="voteJoke(1)">Nayyy</button>
+          <button class="btn" onclick="voteJoke(2)">Meeh</button>
+          <button class="btn" onclick="voteJoke(3)">Yayyy</button>
+        </div>
         <button class="btn" onclick="getJoke()">Next Joke</button>
-        <button class="btn">Yayyy</button>
       </section>
     </main>
 
