@@ -41,8 +41,18 @@ main {
   margin: 2rem 0;
 }
 
+.header-msg {
+  display: flex;
+  align-items: center;
+}
+
 #weather {
   text-transform: capitalize;
+  background-color: lime;
+  border-radius: 50%;
+}
+#temp {
+  font-weight: bold;
 }
 
 .reactions {

@@ -15,10 +15,11 @@ let lat = 41.390205;
 let lon = 2.154007;
 let apiKey = "37f2111fdeb0f75bcb28fbd30c3c518c";
 let lang = "EN";
+let unit = "metric";
 // APIs URLs
 const DAD_JOKES = "https://icanhazdadjoke.com/";
 const CHUCK_NORRIS = "https://api.chucknorris.io/jokes/random";
-const CURRENT_WEATHER = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&lang=${lang}`;
+const CURRENT_WEATHER = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${unit}&appid=${apiKey}&lang=${lang}`;
 // Global Variables
 const reportJokes = [];
 function getJoke() {
@@ -47,6 +48,7 @@ function getJoke() {
         react.style.display = "block";
     });
 }
+// This functions is used to give a score to the jokes and store it in the array reportJokes
 function voteJoke(score) {
     const joke = document.querySelector("#joke").innerHTML;
     const date = new Date();
@@ -59,12 +61,16 @@ function voteJoke(score) {
     react.style.display = "none";
     console.table(reportJokes);
 }
+// This function is called when we load the page and it is used to get weather info
 window.onload = function getWeather() {
     return __awaiter(this, void 0, void 0, function* () {
         const weatherRequest = yield fetch(`${CURRENT_WEATHER}`);
         const weatherData = yield weatherRequest.json();
-        document.querySelector("#weather").innerHTML = weatherData.weather[0].description;
-        document.querySelector("#city").innerHTML = weatherData.name;
+        let weather = document.querySelector("#weather");
+        let icon = weatherData.weather[0].icon;
+        let temp = Math.trunc(weatherData.main.temp);
+        weather.src = `http://openweathermap.org/img/wn/${icon}.png`;
+        document.querySelector("#temp").innerHTML = temp;
         console.log(weatherData);
     });
 };
