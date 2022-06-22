@@ -22,7 +22,7 @@ async function getJoke() {
 
   // Random number between 1 and 2
   let random = Math.floor(Math.random() * 2) + 1;
-  console.log(random)
+  console.log(random);
 
   // If random is < 2 we got with Dad Jokes otherwise it's Chuck Norris Time.
   if (random < 2) {

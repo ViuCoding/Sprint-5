@@ -29,12 +29,15 @@ header {
   top: 0;
   left: 0;
   right: 0;
+  font-size: 1.5rem;
+  color: var(--clr-3);
 }
 
 .header-msg {
   padding: 1rem;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 #temp {
@@ -68,14 +71,14 @@ header {
 
 #weather {
   text-transform: capitalize;
-  background-color: lavender;
+  background-color: var(--clr-3);
   border-radius: 50%;
-  animation: blink 2s ease-in-out 2s infinite;
+  animation: blink 3s ease-in-out 2s infinite;
 }
 
 @keyframes blink {
   50% {
-    background-color: aliceblue;
+    background-color: white;
   }
 }
 
@@ -100,8 +103,9 @@ header {
 }
 
 .next-jk {
-  border: 2px solid var(--clr-3);
+  border: 3px solid var(--clr-3);
   position: absolute;
+  font-weight: 600;
   bottom: 0;
   transform: translateX(-50%);
 }
@@ -125,4 +129,31 @@ header {
   position: fixed;
   right: 0;
   bottom: 20px;
+}
+
+@media (max-width: 1100px) {
+  .blobber2,
+  .blobber3 {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  #joke-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+  #joke-box h1 {
+    font-size: 1.5rem;
+  }
+  #joke {
+    font-size: 1rem;
+  }
+
+  .next-jk {
+    position: unset;
+    transform: none;
+  }
 }
