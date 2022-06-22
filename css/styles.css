@@ -1,4 +1,13 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+
+/* COLORS */
+:root {
+  --clr-1: #f9968b;
+  --clr-2: #f27348;
+  --clr-3: #26474e;
+  --clr-4: #76cdcd;
+  --clr-4: #2cced2;
+}
 
 * {
   margin: 0;
@@ -8,14 +17,11 @@
 
 body {
   font-family: "Roboto", monospace;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/bg1.jpg") center/cover;
-}
-
-body {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  /* background: url("../img/blob1.svg") center no-repeat; */
 }
 
 header {
@@ -27,37 +33,52 @@ header {
 
 .header-msg {
   padding: 1rem;
-  background-color: aliceblue;
-}
-
-#joke-box {
-  padding: 0 1rem;
-  height: 250px;
-  width: 500px;
-  text-align: center;
-  background-color: white;
-  border-radius: 20px;
-  box-shadow: 0px 0px 17px 3px rgba(0, 0, 0, 0.77);
-}
-
-#joke-box h1 {
-  margin-top: 1rem;
-}
-
-#joke {
-  margin: 2rem 0;
-}
-
-.header-msg {
   display: flex;
   align-items: center;
 }
 
+#temp {
+  margin-left: 1rem;
+}
+
+#joke-box {
+  position: relative;
+  padding: 0 1rem;
+  height: 400px;
+  width: 1000px;
+  text-align: center;
+  background-color: transparent;
+  border-radius: 20px;
+}
+
+#joke-box h1 {
+  margin-top: 1rem;
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--clr-3);
+}
+
+#joke {
+  text-align: center;
+  color: var(--clr-3);
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin: 2rem 0;
+}
+
 #weather {
   text-transform: capitalize;
-  background-color: lime;
+  background-color: lavender;
   border-radius: 50%;
+  animation: blink 2s ease-in-out 2s infinite;
 }
+
+@keyframes blink {
+  50% {
+    background-color: aliceblue;
+  }
+}
+
 #temp {
   font-weight: bold;
 }
@@ -68,9 +89,40 @@ header {
 
 .btn {
   font-family: inherit;
-  padding: 0.7rem 1.5rem;
+  color: var(--clr-3);
+  background-color: transparent;
+  font-size: 1.5rem;
   border: none;
+  padding: 0.7rem 1.5rem;
   outline: none;
   border-radius: 30px;
   cursor: pointer;
+}
+
+.next-jk {
+  border: 2px solid var(--clr-3);
+  position: absolute;
+  bottom: 0;
+  transform: translateX(-50%);
+}
+
+.blob {
+  opacity: 0.6;
+}
+
+.blobber {
+  width: 700px;
+  position: fixed;
+}
+.blobber2 {
+  width: 400px;
+  position: fixed;
+  left: 0;
+  top: 20px;
+}
+.blobber3 {
+  width: 400px;
+  position: fixed;
+  right: 0;
+  bottom: 20px;
 }

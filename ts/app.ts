@@ -20,18 +20,19 @@ async function getJoke() {
   let request: any;
   let data: any;
 
-  // Random number between 1 and 10
-  let random = Math.floor(Math.random() * 10) + 1;
+  // Random number between 1 and 2
+  let random = Math.floor(Math.random() * 2) + 1;
+  console.log(random)
 
-  // If random is <= 5 we got with Dad Jokes otherwise it's Chuck Norris Time.
-  if (random <= 5) {
+  // If random is < 2 we got with Dad Jokes otherwise it's Chuck Norris Time.
+  if (random < 2) {
     // First we create a fetch request with all the parameters needed to get a JSON value as a return.
     request = await fetch(`${DAD_JOKES}`, {
       headers: {
         Accept: "application/json",
       },
     });
-    // Then we transform the "request" object into a JSON object, and then we can work with it.
+    // Then we transform the "request" (which is in JSON format) object into a JS object.
 
     data = await request.json();
     document.querySelector("#joke")!.innerHTML = data.joke;
@@ -73,3 +74,29 @@ window.onload = async function getWeather() {
 
   console.log(weatherData);
 };
+
+// Testing Event Listener
+let nextBtn = document.querySelector(".next-jk");
+let blob = document.querySelector(".blobber") as HTMLImageElement;
+let blob2 = document.querySelector(".blobber2") as HTMLImageElement;
+let blob3 = document.querySelector(".blobber3") as HTMLImageElement;
+let i = 1;
+let j = 2;
+let k = 3;
+nextBtn?.addEventListener("click", () => {
+  i++;
+  j++;
+  k++;
+  blob.src = `../img/blob${i}.svg`;
+  blob2.src = `../img/blob${j}.svg`;
+  blob3.src = `../img/blob${k}.svg`;
+  if (i >= 5) {
+    i = 0;
+  }
+  if (j >= 5) {
+    j = 0;
+  }
+  if (k >= 5) {
+    k = 0;
+  }
+});
