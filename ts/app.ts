@@ -23,26 +23,31 @@ async function getJoke() {
   // Random number between 1 and 2
   let random = Math.floor(Math.random() * 2) + 1;
   console.log(random);
+  try {
+    // If random is < 2 we got with Dad Jokes otherwise it's Chuck Norris Time.
+    if (random < 2) {
+      // First we create a fetch request with all the parameters needed to get a JSON string as a return.
+      request = await fetch(`${DAD_JOKES}`, {
+        headers: {
+          Accept: "application/json",
+        },
+      });
+      // Then we transform the "request" (which is in JSON format) object into a JS object.
 
-  // If random is < 2 we got with Dad Jokes otherwise it's Chuck Norris Time.
-  if (random < 2) {
-    // First we create a fetch request with all the parameters needed to get a JSON value as a return.
-    request = await fetch(`${DAD_JOKES}`, {
-      headers: {
-        Accept: "application/json",
-      },
-    });
-    // Then we transform the "request" (which is in JSON format) object into a JS object.
+      data = await request.json();
+      document.querySelector("#joke")!.innerHTML = data.joke;
+    } else {
+      request = await fetch(`${CHUCK_NORRIS}`);
+      data = await request.json();
+      document.querySelector("#joke")!.innerHTML = data.value;
+    }
 
-    data = await request.json();
-    document.querySelector("#joke")!.innerHTML = data.joke;
-  } else {
-    request = await fetch(`${CHUCK_NORRIS}`);
-    data = await request.json();
-    document.querySelector("#joke")!.innerHTML = data.value;
+
+    // We show the "reactions" emoticons once we recieve a Joke from the APIs
+    react.style.display = "block";
+  } catch (error) {
+    console.log("Sorry Matey, something went wrong!", error);
   }
-
-  react.style.display = "block";
 }
 
 // This functions is used to give a score to the jokes and store it in the array reportJokes

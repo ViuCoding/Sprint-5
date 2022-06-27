@@ -71,7 +71,7 @@ header {
 
 #weather {
   text-transform: capitalize;
-  background-color: var(--clr-3);
+  background-color: var(--clr-4);
   border-radius: 50%;
   animation: blink 3s ease-in-out 2s infinite;
 }
@@ -136,15 +136,7 @@ header {
   .blobber3 {
     display: none;
   }
-}
 
-@media (max-width: 500px) {
-  #joke-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-  }
   #joke-box h1 {
     font-size: 1.5rem;
   }
@@ -156,4 +148,14 @@ header {
     position: unset;
     transform: none;
   }
+}
+
+@media (max-width: 500px) {
+  #joke-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
 }
